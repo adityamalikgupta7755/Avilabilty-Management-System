@@ -1,0 +1,39 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+<!-- <form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{form.emp_id}}
+    </div>
+    <div class="mb-3">
+        {{form.emp_name}}
+    </div>
+    <div class="mb-3">
+        Emp Shift :- {{form.emp_shift}}
+    </div>
+    <br /><button class="btn btn-primary" type="submit">Add</button>
+</form> -->
+
+
+<div class="card">
+    <br>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="cardFields">
+            <span>Emp GSS id</span>
+            {{form.emp_id}}
+        </div>
+        <div class="cardFields">
+            <span>Emp Name</span>
+            {{form.emp_name}}
+        </div>
+        <div class="cardFields">
+            <span>Emp Shift</span>
+            {{form.emp_shift}}
+          </div>
+        <button class="cardFieldBtn" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

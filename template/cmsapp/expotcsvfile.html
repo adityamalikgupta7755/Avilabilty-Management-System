@@ -1,0 +1,24 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div class="card">
+    <br>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="cardFields">
+            <span>Start Date</span>
+            <input type="date" name="date" id="date" placeholder="Start Date">
+        </div>
+        <div class="cardFields">
+            <span>End Date</span>
+            <input type="date" name="enddate" id="enddate" placeholder="End Date">
+        </div>
+        <button class="cardFieldBtn" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

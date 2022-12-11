@@ -1,0 +1,34 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div {% if message.tags %} class="alert {{ message.tags }}" {% endif %}>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error !!</strong>{{ message }}
+  </div>
+
+
+{% endfor %}
+{% endif %}
+
+<form action="/dashboard/dashboardlogin" method="post">
+    {% csrf_token %}
+    <div class="loginDiv">
+        <div class="logoDiv">
+            <img class="loginlogo" src="{% static 'image/logo.png' %}" alt="">
+        </div>
+        <div class="loginlmstag">Welcome To GSS CMS</div>
+            <input type="text" name="email" id="email" required="" class="userInputlogin" placeholder="Enter Your UserName">
+            <input type="password" class="userInputlogin userPass" name="pass1" id="pass1" required="" placeholder="Enter Your Password">
+            <br>
+            <button class="loginBtn">Login</button>
+            <div class="loginnewUser">
+            <!-- <a class="loginlink" href="#">Forgot Password</a> -->
+            </div>
+            
+        </div>
+       
+</form>
+{% endblock %}

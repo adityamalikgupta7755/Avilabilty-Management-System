@@ -1,0 +1,11 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+
+{% for x in obj %}
+{{x.emp}} {{x.Date}}<br/>
+{% endfor %}<br/>
+
+
+{{yesterday}}
+{% endblock %}

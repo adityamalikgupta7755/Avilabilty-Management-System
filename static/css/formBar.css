@@ -1,0 +1,45 @@
+.formBar{
+    /* border:2px solid red; */
+    background-color: #d2dae2;
+    text-align: center;
+    margin-top: 1%;
+    height: 5vh;
+    padding-top: 0.5%;
+}
+
+.formBar label{
+    display: none;
+}
+
+.formBar input{
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color:#2c3e50;
+    color: white;
+}
+
+.formBar select{
+    height: 100%;
+    border: 2px solid red;
+    border: none;
+    outline:none;
+    background-color:#2c3e50;
+    color: white;
+}
+
+.empShift{
+    margin-left: 2%;
+}
+
+.formBar button{
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    margin-left: 1%;
+    background-color: #4cd137;
+    padding: 0.5%;
+    color: white;
+    margin-top: -0.2%;
+
+}

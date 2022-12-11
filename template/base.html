@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha256-c9vxcXyAG4paArQG3xk6DjyW/9aHxai2ef9RpMWO44A=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/login.css'%}">
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
+<link rel="stylesheet" href="{% static 'css/card.css'%}">
+<link rel="stylesheet" href="{% static 'css/alertbar.css'%}">
+<link rel="stylesheet" href="{% static 'css/formBar.css'%}">
+
+
+
+
+
+</head>
+<body>
+    {% include './sidebar.html'%}
+    {% include './navbar.html'%}
+    {% block content %}
+
+    {% endblock %}
+    
+    <script>
+      document.querySelector("select").children[0].innerHTML = "";
+        let closeBtn = document.querySelector(".closebtn");
+        let alert = document.querySelector(".alert");
+    
+        function showHideAlert() {
+          alert.style.display = "block";
+          setTimeout(() => {
+            alert.style.display = "none";
+          }, 10000)
+        }
+    
+        showHideAlert();
+
+
+        // let select = document.querySelectorAll("select");
+        // for(let i=0;i<select.length;i++){
+        //   select[i].children[0].innerHTML = "";
+        // }
+
+          
+            
+      
+
+      </script>
+</body>
+</html>

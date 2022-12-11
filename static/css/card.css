@@ -1,0 +1,75 @@
+.card {
+    border: 2px solid black;
+    position: absolute;
+    height: 40vh;
+    width: 50vw;
+    left: 25vw;
+    top: 32vh;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border: none;
+    background-color:#d2dae2;
+    border-radius: 8px;
+  }
+  
+  .cardViewBtn {
+    cursor: pointer;
+  }
+  
+  .cardFields {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+    /* border: 2px solid red; */
+    width: 80%;
+    margin-left: 10%;
+  }
+  .cardFields span {
+    /* border: 2px yellow solid; */
+    width: 60%;
+  }
+  .cardFields select {
+    width: 39%;
+  }
+  
+  .cardFieldBtn {
+    width: 20%;
+    margin-left: 35%;
+    margin-top: 1%;
+    padding: 1%;
+    background-color: #b2bec3;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #cardSelect {
+      width: 32.5%;
+    }
+  .cardFields input{
+    width: 39%;
+    height: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid #000;
+    outline: none;
+  }
+  .cardFields select{
+    width: 40%;
+    height: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #000;
+    outline: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .card {
+      width: 90vw;
+      left: 5vw;
+      top: 53vh;
+      height: 25vh;
+    }
+    .cardSelect {
+      width: 80%;
+    }
+  }

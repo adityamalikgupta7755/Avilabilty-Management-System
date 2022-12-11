@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+<!-- <form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        Status :- {{form.status}}
+    </div>
+    <br /><button type="submit">Update</button>
+</form> -->
+
+
+<div class="card">
+    <br>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="cardFields">
+            <span>Emp Status</span>
+            {{form.status}}
+          </div>
+        <button class="cardFieldBtn" type="submit">Update</button>
+    </form>
+</div>
+{% endblock %}

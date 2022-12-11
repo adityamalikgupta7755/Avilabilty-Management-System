@@ -1,0 +1,23 @@
+{% if user.is_authenticated %}
+<div class="sideBar">
+    <h2>{{request.user.first_name}} {{request.user.last_name}}</h2>
+    <div class="sideBarLinksDiv">
+        <div class="sideBarLinks"><a href="{% url 'homedashboard' %}">View Calender</a></div>
+        <div class="sideBarLinks"><a href="{% url 'dashboardaddemp' %}">Add Employee</a></div>
+        <div class="sideBarLinks"><a href="{% url 'dashboardfileupload' %}">Upload CSV</a></div>
+        <!-- <div class="sideBarLinks"><a href="">Add Field</a></div>
+        <div class="sideBarLinks"><a href="">Add Field</a></div>
+        <div class="sideBarLinks"><a href="">Add Field</a></div> -->
+        <div class="sideBarLinks"><a href="{% url 'dashboardlogout' %}">LogOut</a></div>
+    </div>
+</div>
+{% endif %}
+
+<!-- {% if user.is_authenticated %}
+<a href="{% url 'homedashboard' %}">View calender</a>
+<a href="{% url 'dashboardaddemp' %}">Add Employe</a>
+<a href="{% url 'dashboardfileupload' %}">Upload csv</a>
+<a href="#">{{request.user.first_name}} {{request.user.last_name}}</a>
+
+<a id="logBtnAnch" href="{% url 'dashboardlogout' %}"><button id="logBtn">Logout</button></a>
+{% endif %} -->

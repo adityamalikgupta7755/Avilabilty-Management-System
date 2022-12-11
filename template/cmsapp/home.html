@@ -1,0 +1,262 @@
+{% extends '../base.html' %}
+{% block content %}
+
+<!-- {{request.path}} -->
+<form action="" method="post" return false>
+    {% csrf_token %}
+    <input type="text" class="dateStore" name="day" id="day" />
+
+    <div class="calCont">
+        <div class="cont">
+            <div class="dateDiv">
+                <span class="material-icons prevBtn actionBtn" style="font-size: 3rem">
+                    arrow_back_ios
+                </span>
+                <!-- {% for x in datelist %}
+                <div class="date">
+                    <span class="daySpan">Monday</span>
+                    <span class="currDate">{{x}}</span>
+                </div>
+                {% endfor %} -->
+                <div class="date">
+                    <span class="daySpan">Monday</span>
+                    <span class="currDate">{{monday}}</span>
+                </div>
+                <div class="date">
+                    <span class="daySpan">Tuesday</span>
+                    <span class="currDate">{{tuesday}}</span>
+                </div>
+                <div class="date">
+                    <span class="daySpan">Wednessday</span>
+                    <span class="currDate">{{wednessday}}</span>
+                </div>
+                <div class="date">
+                    <span class="daySpan">Thrusday</span>
+                    <span class="currDate">{{thruday}}</span>
+                </div>
+                <div class="date">
+                    <span class="daySpan">Friday</span>
+                    <span class="currDate">{{friday}}</span>
+                </div>
+                <div class="date">
+                    <span class="daySpan">Saturday</span>
+                    <span class="currDate">{{saturday}}</span>
+                </div>
+                <div class="date">
+                    <span class="daySpan">Sunday</span>
+                    <span class="currDate">{{sunday}}</span>
+                </div>
+                
+                
+                <span class="material-icons nextBtn actionBtn" style="font-size: 3rem">
+                    arrow_forward_ios
+                </span>
+            </div>
+        </div>
+
+        <section id="statusDiv">
+            <div class="statusDiv">
+                {% for empy in emp_obj %}
+                <div class="oneUser ">
+                    <div class="status" id="user">{{empy.emp_name|title}}<br/>{{empy.emp_shift|title}}
+                    </div>
+                    <div class="dayForUser">
+                        {% for x in datelist %}
+                        {% for obje in obj %}
+
+                        {% if obje.emp.id == empy.id %}
+
+                        
+                        {% if obje.Date|date:"SHORT_DATE_FORMAT" == x %}
+                        <div class="status  {{obje.status}}">
+                            <span>{{obje.status}}</span><br>
+                            <div class="shiftTime">{{empy.emp_shift}}</div>
+                            <!-- <span class="shift">{{ obje.Date|date:"D d M Y" }}</span><br/> -->
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+    <button class="submitBtn" onClick="myFun()">Submit</button>
+</form>
+
+<!-- <form action="/" method="post">
+    {% csrf_token %}
+    <div >
+        <div >
+            <input type="text" name="day" id="day" placeholder="day" aria-label="Zip">
+        </div>
+        <div class="col-sm">
+            <input type="text"  name="month" id="month" placeholder="month" aria-label="Zip">
+        </div>
+        <div class="col-sm">
+            <input type="text"  name="year" id="year" placeholder="year" aria-label="Zip">
+        </div>
+    </div>
+    <button  type="submit">Submit</button>
+</form> -->
+
+<script>
+
+    let prevBtn = document.querySelector(".prevBtn");
+    let nextBtn = document.querySelector(".nextBtn");
+    let currDate = document.querySelectorAll(".currDate");
+    let daySpan = document.querySelectorAll(".daySpan");
+    let dateStore = document.querySelector(".dateStore");
+    let submitBtn = document.querySelector(".submitBtn");
+    let dateArr = [];
+    let finalArr = [];
+    let nextDate = 1;
+    let prevDate = 1;
+
+    let todayDayNumber = new Date().getUTCDay();
+    let todayDay = ((7 - todayDayNumber) + 1) - 7;
+
+
+    // for (let i = 0; i < currDate.length; i++) {
+    //     let todayDate = getNextDate(todayDay, String(new Date()).split(' ').slice(1, 4).join(' '));
+    //     currDate[i].innerHTML = String(todayDate).split(' ').slice(1, 4).join(' ');
+    //     daySpan[i].innerHTML = currDate[i].innerHTML.slice(0, 4);
+    //     daySpan[i].innerHTML = new Date(String(todayDate).split(' ').slice(0, 4).join(' ')).toLocaleDateString('en-us', { weekday: "long" });
+    //     todayDay++;
+    //     dateArr[i] = currDate[i].innerHTML;
+    //     // storeInpBox();
+    // }
+
+    function storeInpBox() {
+        let data = "";
+        for (let i = 0; i < finalArr.length; i++) {
+            data += finalArr[i] + " "
+        }
+        data = finalArr[0];
+        dateStore.value = data;
+    }
+
+    function changePrevWeek() {
+        let monDate = currDate[0].innerHTML;
+        for (let i = currDate.length - 1; i >= 0; i--) {
+            let newDate = String(new Date(monDate)).split(' ').slice(1, 4).join(' ');
+            let newDate1 = getPreviousDate(prevDate, newDate);
+            newDate = newDate1;
+            currDate[i].innerHTML = String(newDate1).split(' ').slice(1, 4).join(' ');
+            dateArr[i] = currDate[i].innerHTML;
+            prevDate = prevDate + 1;
+        }
+        prevDate = 1;
+
+
+        setFinalArr();
+
+    }
+
+    function changeNextWeek() {
+        let monDate = currDate[6].innerHTML;
+        for (let i = 0; i < currDate.length; i++) {
+            let newDate = String(new Date(monDate)).split(' ').slice(1, 4).join(' ');
+            // let daySpan = document.querySelectorAll(".daySpan");
+            // daySpan[i].innerHTML = newDate.slice(0,3);
+            let newDate1 = getNextDate(nextDate, newDate);
+            currDate[i].innerHTML = String(newDate1).split(' ').slice(1, 4).join(' ');
+            dateArr[i] = currDate[i].innerHTML;
+            nextDate = nextDate + 1;
+        }
+        nextDate = 1;
+
+        setFinalArr();
+    }
+
+
+    nextBtn.addEventListener("click", changeNextWeek);
+    prevBtn.addEventListener("click", changePrevWeek);
+
+
+    function getNextDate1(day) {
+        const tomorrow = new Date()
+        tomorrow.setDate(new Date().getDate() + day)
+        return tomorrow;
+    }
+
+
+
+
+    function getPreviousDate(day, date) {
+        const yesterday = new Date(date);
+        yesterday.setDate(new Date(date).getDate() - day)
+        return yesterday;
+    }
+
+
+    function getNextDate(day, date) {
+        const yesterday = new Date(date);
+        yesterday.setDate(new Date(date).getDate() + day)
+        return yesterday;
+    }
+
+
+    function getDateArray() {
+        console.log(dateArr);
+    }
+
+
+    // dateStore.addEventListener("change",()=>{
+
+    // })
+
+
+    function getMonthNum(val) {
+        switch (val) {
+            case "Jan":
+                return 01;
+            case "Feb":
+                return 02;
+            case "Mar":
+                return 03;
+            case "Apr":
+                return 04;
+            case "May":
+                return 05;
+            case "Jun":
+                return 06;
+            case "Jul":
+                return 07;
+            case "Aug":
+                return 08;
+            case "Sep":
+                return 09;
+            case "Oct":
+                return 10;
+            case "Nov":
+                return 11;
+            case "Dec":
+                return 12;
+        }
+    }
+
+
+    function setFinalArr() {
+        for (let i = 0; i < dateArr.length; i++) {
+            let a = dateArr[i].split(" ");
+            let finalDate = getMonthNum(a[0]) + "/" + a[1] + "/" + a[2];
+            finalArr[i] = finalDate;
+        }
+
+        storeInpBox();
+        setTimeout(() => {
+            submitBtn.click();
+        }, 200)
+
+    }
+
+    function myFun(e) {
+        console.log("hiii");
+    }
+
+</script>
+{% endblock %}
