@@ -2,7 +2,7 @@ from cProfile import label
 from cgitb import lookup
 from dataclasses import field
 import django_filters
-from .models import emp,
+from .models import emp
 from django_filters import CharFilter
 
 
