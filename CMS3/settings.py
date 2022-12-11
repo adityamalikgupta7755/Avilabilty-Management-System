@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-15gl65h6k8kwh)+=d2^pgf90qrk&sm_dv*tg)qa%@h+i@0d8^%
 DEBUG = True
 
 ALLOWED_HOSTS = ['cmsv1-production-538e.up.railway.app','*']
-
+CSRF_TRUSTED_ORIGINS = ["https://cmsv1-production-538e.up.railway.app"]
 
 # Application definition
 
@@ -164,3 +164,4 @@ MEDIA_ROOT =os.path.join(BASE_DIR, 'static/image')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
