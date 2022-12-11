@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from cmsdashboard import views
 
 urlpatterns = [
         path('', views.dashboardhome, name='homedashboard'),

@@ -1,5 +1,3 @@
-from dataclasses import fields
-from tkinter import Widget
 from django import forms
 from django.forms import ModelForm
 from .models import *
