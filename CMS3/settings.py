@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'cmsapp',
     'cmsdashboard',
     'import_export',
-    'django_filters'
+    'django_filters',
+    'whitenoise.runserver_nostatic',  
 
 ]
 
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'CMS3.urls'
@@ -150,6 +152,7 @@ MEDIA_URL = '/image/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static')
 ]
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_ROOT =os.path.join(BASE_DIR, 'static/image')
 
 # Default primary key field type
