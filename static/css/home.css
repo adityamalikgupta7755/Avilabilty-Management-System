@@ -8,6 +8,21 @@
     width: 80vw;
     /* margin-left: 10vw; */
 }
+.shiftTime{
+    background-color: #0019ff;
+    color:#fff;
+    height:60%;
+    width: 70%;
+    left:35%;
+    line-height: 2;
+    border-radius: 16px;
+    position: absolute;
+    top:-50%;
+    font-size:0.6rem;
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .oneUser {
     width: 100vw;
@@ -272,15 +287,53 @@ line-height: 1.4;
     .statusDiv {
         top: 14.2%;
         margin-left: 1%;
-        width: 93%;
+        width: 97%;
     }
 
     #statusDiv {
         height: 70vh;
+        padding-top: 1%;
+        position: fixed;
+        top: 23vh;
     }
 
     body {
-        position: fixed;
+        /* position: fixed; */
+    }
+
+    .oneUser{
+        /* border: 2px solid red; */
+        width: 200vw;
+        /* height: 120px; */
+    }
+
+    .shiftTime{
+        width: 110%;
+        line-height: 2.5;
+        top: -25%;
+    }
+    #user{
+        height: 80%;
+        width: 20%;
+    
+    }
+    .Available,.weekend{
+        height: 80%;
+        font-size: 22px;
+    }
+    .dateDiv{
+        /* border: 2px solid red; */
+        margin-left: 30%;
+        /* position: none; */
+    }
+    .date{
+        width: 300px;
+    }
+    .dateDiv{
+        margin-left: 37%;
+    }
+    #myTopnav{
+        width: 209%;
     }
 
 
@@ -303,18 +356,3 @@ line-height: 1.4;
 }
 
 
-.shiftTime{
-    background-color: #0019ff;
-    color:#fff;
-    height:60%;
-    width: 70%;
-    left:35%;
-    line-height: 2;
-    border-radius: 16px;
-    position: absolute;
-    top:-50%;
-    font-size:0.6rem;
-    z-index: 1;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
